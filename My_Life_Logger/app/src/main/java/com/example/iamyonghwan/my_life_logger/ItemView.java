@@ -16,13 +16,13 @@ import android.widget.TextView;
 public class ItemView {
     public String item;
     public String time;
-    public String event;
+    public String category;
 
     public ItemView(){}
 
-    public ItemView(String time , String item , String event){
+    public ItemView(String time , String item , String category){
         this.time = time;
-        this.event = event;
+        this. category = category;
         this.item = item;
     }
 }

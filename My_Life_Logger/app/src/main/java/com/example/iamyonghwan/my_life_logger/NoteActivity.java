@@ -56,6 +56,8 @@ public class NoteActivity extends AppCompatActivity {
     long pausetime;
     long elapsedtime;
     String time;
+    String start_date;
+    String end_date;
 
     SQLiteDatabase db;
     MySQLiteOpenHelper helper;
@@ -168,9 +170,10 @@ public class NoteActivity extends AppCompatActivity {
     }
 
     public void myOnClick(View v){
+        start_date = getDateString();
         switch(v.getId()){
             case R.id.button9: //시작버튼을 클릭했을때 현재 상태값에 따라 다른 동작을 할수있게끔 구현.
-                textView1.setText(getDateString()) ;
+                textView1.setText(start_date) ;
                 switch(cur_Status){
                     case Init:
                         basetime = SystemClock.elapsedRealtime();
@@ -190,6 +193,7 @@ public class NoteActivity extends AppCompatActivity {
                         cur_Status = Pause;
                         break;
                     case Pause:
+                        end_date = getDateString();
                         long now = SystemClock.elapsedRealtime();
                         myTimer.sendEmptyMessage(0);
                         basetime += (now- pausetime);
@@ -207,7 +211,7 @@ public class NoteActivity extends AppCompatActivity {
                 cur_Status = Pause;
                 break;
             case R.id.button11:
-                textView2.setText(getDateString());
+                textView2.setText(end_date);
                 myTimer.removeMessages(0); //핸들러 메세지 제거
                 pausetime = SystemClock.elapsedRealtime();
                 textView2.setText(getDateString());

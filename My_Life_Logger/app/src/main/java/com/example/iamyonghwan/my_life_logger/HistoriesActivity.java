@@ -32,14 +32,12 @@ public class HistoriesActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_histories);
 
-        //list를 불러와야하기 때문에 db를 연결시켜준다
         helper = new MySQLiteOpenHelper(HistoriesActivity.this,
                 "customer_1.db",
                 null,
                 1);
         ViewArray2 = helper.getView();
 
-        //그리고 listview와 adapter를 설정해준다
         adapter = new Eventadapter(this, R.layout.bordlist_content, ViewArray2);
         ListView listview2 = (ListView) findViewById(R.id.listView) ;
         listview2.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE);
@@ -89,7 +87,7 @@ class Eventadapter extends BaseAdapter {
         time.setText(arD.get(position).time);
 
         TextView event = (TextView) convertView.findViewById(R.id.textView8);
-        long outTime = Long.parseLong(arD.get(position).event);
+        long outTime = Long.parseLong(arD.get(position).category);
         String Time = String.format("%02d:%02d:%02d", outTime/1000 / 60, (outTime/1000)%60,(outTime%1000)/10);
         event.setText(Time);
 
