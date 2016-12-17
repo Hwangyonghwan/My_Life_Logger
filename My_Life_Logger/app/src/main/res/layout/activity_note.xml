@@ -35,13 +35,51 @@
                         android:layout_width="match_parent"
                         android:layout_height="0dp"
                         android:layout_weight="1">
+                        <RadioGroup
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:layout_centerHorizontal="true"
+                            android:id="@+id/radioGroup">
+                            <RadioButton
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Study"
+                                android:typeface="monospace"
+                                android:id="@+id/studybtn" />
+                            <RadioButton
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Exercise"
+                                android:typeface="monospace"
+                                android:id="@+id/exercisebtn" />
+                            <RadioButton
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Sleep"
+                                android:typeface="monospace"
+                                android:id="@+id/datebtn" />
+                            <RadioButton
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Etc"
+                                android:typeface="monospace"
+                                android:id="@+id/etcbtn" />
+                        </RadioGroup>
+
+                    </LinearLayout>
+                    <LinearLayout
+                        android:orientation="horizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="1">
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:id="@+id/text1"
                             android:text="시작 시간"
-                            android:textSize="30dp"
+                            android:textSize="25dp"
                             android:layout_marginLeft="30dp"
                             android:layout_marginTop="20dp"
                             android:layout_marginRight="20dp"
@@ -51,7 +89,7 @@
                             android:layout_height="wrap_content"
                             android:id="@+id/text3"
                             android:text=""
-                            android:textSize="25dp"
+                            android:textSize="15dp"
                             android:layout_marginLeft="30dp"
                             android:layout_marginTop="20dp"
                             android:layout_marginRight="20dp"
@@ -69,7 +107,7 @@
                             android:layout_height="wrap_content"
                             android:id="@+id/text2"
                             android:text="종료 시간"
-                            android:textSize="30dp"
+                            android:textSize="25dp"
                             android:layout_marginLeft="30dp"
                             android:layout_marginTop="20dp"
                             android:layout_marginRight="20dp"
@@ -80,7 +118,7 @@
                             android:layout_height="wrap_content"
                             android:id="@+id/text4"
                             android:text=""
-                            android:textSize="25dp"
+                            android:textSize="15dp"
                             android:layout_marginLeft="30dp"
                             android:layout_marginTop="20dp"
                             android:layout_marginRight="20dp"
@@ -119,14 +157,23 @@
                     android:layout_height="wrap_content"
                     android:text="Start"
                     android:id="@+id/button9"
+                    android:onClick="myOnClick"
                     android:layout_gravity="bottom|center_horizontal"
                     android:layout_weight="1" />
-
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Pause"
+                    android:id="@+id/button10"
+                    android:onClick="myOnClick"
+                    android:layout_gravity="bottom"
+                    android:layout_weight="1"/>
                 <Button
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Stop"
-                    android:id="@+id/button10"
+                    android:id="@+id/button11"
+                    android:onClick="myOnClick"
                     android:layout_gravity="bottom"
                     android:allowUndo="false"
                     android:layout_weight="1" />
@@ -162,7 +209,8 @@
                 android:layout_alignTop="@+id/imageButton"
                 android:layout_toStartOf="@+id/button8"
                 android:background="#ffffff"
-                android:layout_weight="1" />
+                android:layout_weight="1"
+                android:layout_toLeftOf="@+id/button8" />
 
             <Button
                 style="?android:attr/buttonStyleSmall"
